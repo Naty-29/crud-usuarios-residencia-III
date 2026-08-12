@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+# Serve para dizer ao Git para não enviar esses arquivos ao Github, esse em específico são minhas credenciais de banco
+.env
+.vscode/
