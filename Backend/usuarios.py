@@ -5,7 +5,7 @@ def listar_usuarios():
     conexao = conectar()
     cursor = conexao.cursor()
 
-    cursor.execute(" SELECT * FROM usuarios ")
+    cursor.execute(" SELECT * FROM usuarios WHERE ativo = 1") # Executar a consulta SQL para selecionar todos os usuários ativos
 
     usuarios = cursor.fetchall() # Guardar os resultados da consulta na variável usuários
 
@@ -75,13 +75,13 @@ def excluir_usuario(id_usuario):
     cursor = conexao.cursor()
 
     comando = """
-        DELETE FROM usuarios
+        UPDATE usuarios
+        SET ativo = 0
         WHERE idUsuarios = %s
     """
 
     # Usamos uma tupla com um único elemento porque o execute() espera os valores dos parâmetros em uma sequência.
     cursor.execute(comando, (id_usuario,))
-    cursor.execute(comando, (id_usuario,)) 
     conexao.commit()
 
     cursor.close()
@@ -95,6 +95,7 @@ def buscar_usuario(id_usuario):
     comando = """
         SELECT * FROM usuarios
         WHERE idUsuarios = %s
+        AND ativo = 1
     """
     cursor.execute(comando, (id_usuario,))
 
