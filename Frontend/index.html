@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aether Corp · Usuários</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="brand">
+    <div class="brand-mark">A</div>
+    <div class="brand-name">Naty Corp.</div>
+  </div>
+  <nav class="nav">
+    <div class="nav-item"><span class="nav-icon">▦</span> Painel Principal</div>
+    <div class="nav-item"><span class="nav-icon">⌂</span> Início</div>
+    <div class="nav-item active"><span class="nav-icon">◉</span> Usuários</div>
+    <div class="nav-item"><span class="nav-icon">▤</span> Logs</div>
+    <div class="nav-item"><span class="nav-icon">⚙</span> Definições</div>
+  </nav>
+  <div class="sidebar-footer">
+    <div class="avatar-sm">AS</div>
+    <div class="sidebar-footer-text">
+      <div class="name">Aline Silva</div>
+      <div class="role">Terminar sessão</div>
+    </div>
+  </div>
+</aside>
+
+<main class="main">
+  <div class="topbar">
+    <h1>Usuários</h1>
+  </div>
+
+  <div class="content-row">
+    <section class="panel list-panel">
+      <div class="list-header">
+        <h2>Lista de usuários</h2>
+        <button class="btn btn-primary" id="btn-novo">+ Novo usuário</button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>E-mail</th>
+            <th>Telefone</th>
+            <th>Nascimento</th>
+            <th>Status</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="tbody-usuarios">
+          <!-- preenchido via JS -->
+        </tbody>
+      </table>
+
+      <div id="empty-state" class="empty-state" style="display:none;">
+        Nenhum usuário encontrado.
+      </div>
+
+      <div class="pagination">
+        <div class="page-info" id="page-info">—</div>
+        <div class="page-btns" id="page-btns"></div>
+      </div>
+    </section>
+
+    <section class="panel form-panel">
+      <h2 id="form-title">Cadastro de usuário</h2>
+      <div class="form-subtitle" id="form-subtitle">Preencha os dados abaixo</div>
+
+      <form id="form-usuario">
+        <div class="field" id="field-id" style="display:none;">
+          <label>ID</label>
+          <input type="text" id="input-id" disabled>
+        </div>
+
+        <div class="field" id="field-nome">
+          <label>Nome completo</label>
+          <input type="text" id="input-nome" placeholder="Ex: Aline Silva" required>
+          <div class="field-error">Informe o nome completo</div>
+        </div>
+
+        <div class="field" id="field-email">
+          <label>E-mail</label>
+          <input type="email" id="input-email" placeholder="nome@email.com" required>
+          <div class="field-error">Informe um e-mail válido</div>
+        </div>
+
+        <div class="field-row">
+          <div class="field" id="field-cpf">
+            <label>CPF</label>
+            <input type="text" id="input-cpf" placeholder="000.000.000-00" required>
+            <div class="field-error">Informe o CPF</div>
+          </div>
+          <div class="field" id="field-telefone">
+            <label>Telefone</label>
+            <input type="text" id="input-telefone" placeholder="(00) 00000-0000">
+          </div>
+        </div>
+
+        <div class="field" id="field-nascimento">
+          <label>Data de nascimento</label>
+          <input type="date" id="input-nascimento" required>
+          <div class="field-error">Informe a data de nascimento</div>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn-ghost btn-block" id="btn-cancelar">Cancelar</button>
+          <button type="submit" class="btn btn-primary btn-block" id="btn-salvar">Salvar</button>
+        </div>
+      </form>
+    </section>
+  </div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

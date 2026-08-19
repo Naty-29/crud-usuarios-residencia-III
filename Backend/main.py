@@ -7,7 +7,7 @@ from usuarios import (
     atualizar_usuario,
     excluir_usuario
 )
-
+from fastapi.middleware.cors import CORSMiddleware
 
 class Usuario(BaseModel): 
     nome: str
@@ -17,6 +17,13 @@ class Usuario(BaseModel):
     data_nascimento: str
 
 app = FastAPI() # Cria nossa aplicação
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/usuarios")
 def get_usuarios():

@@ -133,7 +133,7 @@ def excluir_usuario(id_usuario):
     except HTTPException:
         raise
     except mysql.connector.errors.DatabaseError as erro:
-        if errp.errno == 1205:
+        if erro.errno == 1205:
             raise HTTPException(
                 status_code=503, 
                 detail="O banco de dados está temporariamente indisponível. Por favor, tente novamente mais tarde."
